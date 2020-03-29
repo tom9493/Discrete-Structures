@@ -145,7 +145,7 @@ public:
                     vector<int> positions;
                     vector<Parameter> parameters = rhPredicates.at(j).getParameters();
                     // Each parameter is tested.. constant or variable
-                    for (unsigned int k = 0; k < rhPredicates.at(j).numParameters(); k++) {
+                    for (int k = 0; k < rhPredicates.at(j).numParameters(); k++) {
                         if (parameters.at(k).isConstant()) {
                             // If constant, check relation with same name and select tuples that match
                             r = type1Select(k, parameters.at(k).getName(), r);
@@ -180,7 +180,7 @@ public:
                 vector<string> schemeNames = r.getScheme().returnSchemeNames();
                 vector<int> columns;
                 map<string, int> inColumn;
-                for (unsigned int j = 0; j < head.numParameters(); j++) {
+                for (int j = 0; j < head.numParameters(); j++) {
                     for (unsigned int k = 0; k < schemeNames.size(); k++) {
                         if (headNames.at(j) == schemeNames.at(k) && inColumn.find(schemeNames.at(k)) == inColumn.end()) {
                             inColumn[schemeNames.at(k)] = k;
@@ -278,7 +278,7 @@ public:
         for (unsigned int k = 0; k < scheme1Names.size(); ++k) { s.insertSchemeName(scheme1Names.at(k)); }
         /*If positionList is not empty, only insert schemes not already included from first relation scheme. Else,
           insert all schemes names from scheme 2 into the new scheme*/
-        for (unsigned int k = 0; k < scheme2Names.size(); ++k) {
+        for (int k = 0; k < scheme2Names.size(); ++k) {
             if (!positionList.empty()) {
                 for (unsigned int l = 0; l < positionList.size(); l = l + 2) {
                     if (k != positionList.at(l + 1)) { s.insertSchemeName(scheme2Names.at(k)); }
@@ -326,7 +326,7 @@ public:
             vector<int> positions;
             vector<Parameter> parameters = queries.at(i).getParameters();
             // Each parameter is tested.. constant or variable
-            for (unsigned int j = 0; j < queries.at(i).numParameters(); j++) {
+            for (int j = 0; j < queries.at(i).numParameters(); j++) {
                 if (parameters.at(j).isConstant()) {
                     // If constant, check relation with same name and select tuples that match
                     r = type1Select(j, parameters.at(j).getName(), r);
