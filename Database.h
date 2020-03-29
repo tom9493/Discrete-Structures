@@ -277,7 +277,7 @@ public:
         for (unsigned int k = 0; k < scheme1Names.size(); ++k) { s.insertSchemeName(scheme1Names.at(k)); }
         /*If positionList is not empty, only insert schemes not already included from first relation scheme. Else,
           insert all schemes names from scheme 2 into the new scheme*/
-        for (int k = 0; k < scheme2Names.size(); ++k) {
+        for (unsigned int k = 0; k < scheme2Names.size(); ++k) {
             if (!positionList.empty()) {
                 for (unsigned int l = 0; l < positionList.size(); l = l + 2) {
                     if (k != positionList.at(l + 1)) { s.insertSchemeName(scheme2Names.at(k)); }
@@ -295,8 +295,8 @@ public:
         /* Push back only the values that have not been included. These are the values that are not included as the
          values in the odd positions in positionList. If positionList is empty, push back all values.*/
         if (!positionList.empty()) {
-            for (unsigned int k = 0; k < j.size(); k++) {
-                for (unsigned int l = 0; l < positionList.size(); l = l + 2) {
+            for (int k = 0; k < j.size(); k++) {
+                for (int l = 0; l < positionList.size(); l = l + 2) {
                     if (k != positionList.at(l + 1)) { t.push_back(j.at(k)); }
                 }
             }
